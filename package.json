@@ -1,0 +1,48 @@
+{
+    "name" : "awssum-amazon-s3",
+    "description" : "NodeJS module to talk to Amazon S3.",
+    "version" : "1.0.0",
+
+    "main" : "awssum-amazon-s3.js",
+    "engines" : {
+        "node" : ">= 0.6.0"
+    },
+    "peerDependencies" : {
+        "awssum-amazon" : "1.x.x"
+    },
+    "dependencies" : {
+        "data2xml" : "0.8.x",
+        "underscore" : "1.4.x",
+        "dateformat" : "1.0.4-1.2.3"
+    },
+    "devDependencies" : {
+        "tap" : "0.4.x"
+    },
+    "scripts" : {
+        "test" : "tap test/*.js test/integration/*.js"
+    },
+
+    "homepage" : "https://awssum.io/",
+    "repository" : {
+        "type" : "git",
+        "url" : "git://github.com/awssum/awssum-amazon-s3.git"
+    },
+    "bugs" : {
+        "url" : "http://github.com/awssum/awssum-amazon-s3/issues",
+        "mail" : "andychilton@gmail.com"
+    },
+
+    "author" : {
+        "name" : "Andrew Chilton",
+        "email" : "andychilton@gmail.com",
+        "url" : "http://chilts.org/"
+    },
+    "contributors" : [],
+    "licenses" : [{
+        "type" : "MIT",
+        "url" : "http://github.com/awssum/awssum-amazon-s3/raw/master/LICENSE"
+    }],
+    "keywords" : [
+        "awssum", "awssum-plugin", "amazon", "aws", "webapi", "api", "s3"
+    ]
+}
