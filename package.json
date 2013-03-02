@@ -1,6 +1,6 @@
 {
     "name" : "awssum-amazon-s3",
-    "description" : "NodeJS module to talk to Amazon S3.",
+    "description" : "NodeJS module to talk to Amazon Simple Storage Service (S3).",
     "version" : "1.0.0",
 
     "main" : "awssum-amazon-s3.js",
