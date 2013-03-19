@@ -1,7 +1,10 @@
 # awssum-amazon-s3 #
 
-This is an ```awssum``` plugin. You'll need to add ```awssum-amazon-s3``` to your package.json dependencies. Both
-```awssum``` and ```awssum-amazon``` are pulled in as peer dependencies.
+This is an ```AwsSum``` plugin!
+
+You'll need to add [awssum-amazon-s3](https://github.com/awssum/awssum-amazon-s3/) to your package.json
+dependencies. Both [awssum](https://github.com/awssum/awssum/) and
+[awssum-amazon](https://github.com/awssum/awssum-amazon/) are pulled in as peer dependencies.
 
 ## Example ##
 
