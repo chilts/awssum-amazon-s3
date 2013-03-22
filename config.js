@@ -1237,6 +1237,7 @@ module.exports = {
             },
         },
         body : bodyWebsiteConfiguration,
+        addExtras : extrasContentLength,
         // response
         extractBody : 'none',
     },
