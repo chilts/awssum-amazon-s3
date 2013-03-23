@@ -148,7 +148,7 @@ function bodyBucketLoggingStatus(options, args) {
     }
 
     // set the initial hierarchy
-    data.LoggingEnabled = {
+    data.LoggingEnabled.TargetGrants = {
         Grant : {
             Grantee : {
                 _attr : {
