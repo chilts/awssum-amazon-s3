@@ -13,9 +13,8 @@
 var fs = require('fs');
 var test = require('tap').test;
 
-var awssum = require('awssum');
-var amazon = require('awssum-amazon');
-var S3 = require('../../awssum-amazon-s3.js').S3;
+var amazonS3 = require('../../awssum-amazon-s3.js');
+var S3 = amazonS3.S3;
 
 // --------------------------------------------------------------------------------------------------------------------
 
@@ -25,7 +24,7 @@ try {
     s3 = new S3({
         'accessKeyId'     : env.ACCESS_KEY_ID,
         'secretAccessKey' : env.SECRET_ACCESS_KEY,
-        'region'          : amazon.US_EAST_1
+        'region'          : amazonS3.US_EAST_1
     });
 }
 catch(e) {

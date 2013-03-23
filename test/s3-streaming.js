@@ -14,9 +14,8 @@ var http = require('http'),
 
 var test = require("tap").test;
 
-var awssum = require('awssum');
-var amazon = require('awssum-amazon');
-var S3 = require('../awssum-amazon-s3.js').S3;
+var amazonS3 = require('../awssum-amazon-s3.js')
+var S3 = amazonS3.S3;
 
 test("AwsSum.prototype.send tests", function(t) {
     t.plan(4);
@@ -36,7 +35,7 @@ test("AwsSum.prototype.send tests", function(t) {
         accessKeyId     : 'key',
         secretAccessKey : 'secret',
         awsAccountId    : '1111-2222-3333',
-        region          : amazon.US_EAST_1
+        region          : amazonS3.US_EAST_1
     });
     s3.request = function(options) {
         t.equal(FAKE_READABLE_STREAM, options.body, "AweSum.prototype.request called with a ReadableStream body");
@@ -105,7 +104,7 @@ test("AwsSum.prototype.request properly streams body contents", function(t) {
         accessKeyId     : 'key',
         secretAccessKey : 'secret',
         awsAccountId    : '111122223333',
-        region          : amazon.US_EAST_1
+        region          : amazonS3.US_EAST_1
     });
     var fakeServer = http.createServer(function(req, res) {
         s3.request({

@@ -15,9 +15,8 @@
 var _ = require('underscore');
 var tap = require("tap");
 
-var awssum = require('awssum');
-var amazon = require('awssum-amazon');
-var S3 = require('../awssum-amazon-s3.js').S3;
+var amazonS3 = require('../awssum-amazon-s3.js');
+var S3 = amazonS3.S3;
 
 var test = tap.test;
 var plan = tap.plan;
@@ -30,7 +29,7 @@ test("create s3 object", function (t) {
         accessKeyId     : 'access_key_id',
         secretAccessKey : 'secret_access_key',
         awsAccountId    : '1111-2222-3333',
-        region          : amazon.US_WEST_1
+        region          : amazonS3.US_WEST_1
     });
 
     t.equal('access_key_id', s3.accessKeyId(), 'Access Key ID set properly');
@@ -47,31 +46,31 @@ test("test all endpoints", function (t) {
         accessKeyId     : 'access_key_id',
         secretAccessKey : 'secret_access_key',
         awsAccountId    : '1111-2222-3333',
-        region          : amazon.US_EAST_1
+        region          : amazonS3.US_EAST_1
     });
     var s32 = new S3({
         accessKeyId     : 'access_key_id',
         secretAccessKey : 'secret_access_key',
         awsAccountId    : '1111-2222-3333',
-        region          : amazon.US_WEST_1
+        region          : amazonS3.US_WEST_1
     });
     var s33 = new S3({
         accessKeyId     : 'access_key_id',
         secretAccessKey : 'secret_access_key',
         awsAccountId    : '1111-2222-3333',
-        region          : amazon.EU_WEST_1
+        region          : amazonS3.EU_WEST_1
     });
     var s34 = new S3({
         accessKeyId     : 'access_key_id',
         secretAccessKey : 'secret_access_key',
         awsAccountId    : '1111-2222-3333',
-        region          : amazon.AP_SOUTHEAST_1
+        region          : amazonS3.AP_SOUTHEAST_1
     });
     var s35 = new S3({
         accessKeyId     : 'access_key_id',
         secretAccessKey : 'secret_access_key',
         awsAccountId    : '1111-2222-3333',
-        region          : amazon.AP_NORTHEAST_1
+        region          : amazonS3.AP_NORTHEAST_1
     });
 
     t.equal('s3.amazonaws.com', s31.host(), '1) Endpoint is correct');
@@ -88,7 +87,7 @@ test("test strToSign", function (t) {
         accessKeyId     : 'access_key_id',
         secretAccessKey : 'secret_access_key',
         awsAccountId    : '1111-2222-3333',
-        region          : amazon.US_WEST_1
+        region          : amazonS3.US_WEST_1
     });
 
     // NOTE: since strToSign() is really a private method, we have to set up the options to be pretty complete
@@ -213,7 +212,7 @@ test("test signature", function (t) {
         accessKeyId     : 'access_key_id',
         secretAccessKey : 'secret_access_key',
         awsAccountId    : '1111-2222-3333',
-        region          : amazon.US_WEST_1
+        region          : amazonS3.US_WEST_1
     });
 
     var strToSign = "GET\n\n\nTue, 25 Oct 2011 03:09:21 UTC\n/";

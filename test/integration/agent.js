@@ -14,9 +14,9 @@ var https = require('https');
 var fs = require('fs');
 
 var test = require('tap').test;
-var awssum = require('awssum');
-var amazon = require('awssum-amazon');
-var S3 = require('../../awssum-amazon-s3').S3;
+
+var amazonS3 = require('../../awssum-amazon-s3');
+var S3 = amazonS3.S3;
 
 // --------------------------------------------------------------------------------------------------------------------
 
@@ -26,18 +26,18 @@ try {
     noAgent = new S3({
         'accessKeyId'     : env.ACCESS_KEY_ID,
         'secretAccessKey' : env.SECRET_ACCESS_KEY,
-        'region'          : amazon.US_EAST_1,
+        'region'          : amazonS3.US_EAST_1,
     });
     withAgent = new S3({
         'accessKeyId'     : env.ACCESS_KEY_ID,
         'secretAccessKey' : env.SECRET_ACCESS_KEY,
-        'region'          : amazon.US_EAST_1,
+        'region'          : amazonS3.US_EAST_1,
         'agent'           : new https.Agent({ maxSockets: 1 }),
     });
     falseAgent = new S3({
         'accessKeyId'     : env.ACCESS_KEY_ID,
         'secretAccessKey' : env.SECRET_ACCESS_KEY,
-        'region'          : amazon.US_EAST_1,
+        'region'          : amazonS3.US_EAST_1,
         'agent'           : false,
     });
 }
