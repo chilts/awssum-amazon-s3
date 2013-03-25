@@ -16,6 +16,7 @@
         "dateformat" : "1.0.4-1.2.3"
     },
     "devDependencies" : {
+        "fmt" : "0.4.x",
         "tap" : "0.4.x"
     },
     "scripts" : {
