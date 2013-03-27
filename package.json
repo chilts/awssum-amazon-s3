@@ -1,7 +1,7 @@
 {
     "name" : "awssum-amazon-s3",
     "description" : "AwsSum plugin for Amazon Simple Storage Service (S3).",
-    "version" : "1.2.1",
+    "version" : "1.2.2",
 
     "main" : "awssum-amazon-s3.js",
     "engines" : {
