@@ -260,8 +260,8 @@ exports.EU_WEST_1      = amazon.EU_WEST_1;
 exports.AP_SOUTHEAST_1 = amazon.AP_SOUTHEAST_1;
 exports.AP_SOUTHEAST_2 = amazon.AP_SOUTHEAST_2;
 exports.AP_NORTHEAST_1 = amazon.AP_NORTHEAST_1;
-exports.US_GOV_WEST    = amazon.US_GOV_WEST;
 exports.SA_EAST_1      = amazon.SA_EAST_1;
+exports.US_GOV_WEST    = amazon.US_GOV_WEST;
 
 exports.S3 = S3;
 
