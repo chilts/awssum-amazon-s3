@@ -12,7 +12,7 @@
 var crypto = require('crypto');
 
 var _ = require('underscore');
-var data2xml = require('data2xml');
+var data2xml = require('data2xml')({ attrProp : '@', valProp  : '#', });
 var esc = require('awssum').esc;
 
 // --------------------------------------------------------------------------------------------------------------------
@@ -49,7 +49,7 @@ function bodyLocationConstraint(options, args) {
 
     // create the data
     var data = {
-        _attr : { 'xmlns' : 'http://s3.amazonaws.com/doc/2006-03-01/' },
+        '@' : { 'xmlns' : 'http://s3.amazonaws.com/doc/2006-03-01/' },
         LocationConstraint : self.locationConstraint(),
     };
 
@@ -61,7 +61,7 @@ function bodyAccessControlPolicy(options, args) {
 
     // create the data
     var data = {
-        _attr : { 'xmlns' : 'http://s3.amazonaws.com/doc/2006-03-01/' },
+        '@' : { 'xmlns' : 'http://s3.amazonaws.com/doc/2006-03-01/' },
     };
 
     if ( !args.AccessControlPolicy ) {
@@ -78,7 +78,7 @@ function bodyCorsConfiguration(options, args) {
 
     // create the data
     var data = {
-        _attr : { 'xmlns' : 'http://s3.amazonaws.com/doc/2006-03-01/' },
+        '@' : { 'xmlns' : 'http://s3.amazonaws.com/doc/2006-03-01/' },
     };
 
     if ( !args.CorsConfiguration ) {
@@ -132,7 +132,7 @@ function bodyBucketLoggingStatus(options, args) {
 
     // create the data
     var data = {
-        _attr : { 'xmlns' : 'http://s3.amazonaws.com/doc/2006-03-01/' },
+        '@' : { 'xmlns' : 'http://s3.amazonaws.com/doc/2006-03-01/' },
     };
 
     // required
@@ -151,7 +151,7 @@ function bodyBucketLoggingStatus(options, args) {
     data.LoggingEnabled.TargetGrants = {
         Grant : {
             Grantee : {
-                _attr : {
+                '@' : {
                     'xmlns:xsi' : 'http://www.w3.org/2001/XMLSchema-instance'
                 },
             },
@@ -160,15 +160,15 @@ function bodyBucketLoggingStatus(options, args) {
 
     // optional
     if ( args.GranteeId ) {
-        data.LoggingEnabled.TargetGrants.Grant.Grantee._attr['xsi:type'] = "CanonicalUser";
+        data.LoggingEnabled.TargetGrants.Grant.Grantee['@']['xsi:type'] = "CanonicalUser";
         data.LoggingEnabled.TargetGrants.Grant.Grantee.ID = args.GranteeId;
     }
     else if ( args.EmailAddress ) {
-        data.LoggingEnabled.TargetGrants.Grant.Grantee._attr['xsi:type'] = "AmazonCustomerByEmail";
+        data.LoggingEnabled.TargetGrants.Grant.Grantee['@']['xsi:type'] = "AmazonCustomerByEmail";
         data.LoggingEnabled.TargetGrants.Grant.Grantee.EmailAddress = args.EmailAddress;
     }
     else if ( args.Uri ) {
-        data.LoggingEnabled.TargetGrants.Grant.Grantee._attr['xsi:type'] = "Group";
+        data.LoggingEnabled.TargetGrants.Grant.Grantee['@']['xsi:type'] = "Group";
         data.LoggingEnabled.TargetGrants.Grant.Grantee.URI = args.Uri;
     }
 
@@ -184,7 +184,7 @@ function bodyNotificationConfiguration(options, args) {
 
     // create the data
     var data = {
-        _attr : { 'xmlns' : 'http://s3.amazonaws.com/doc/2006-03-01/' },
+        '@' : { 'xmlns' : 'http://s3.amazonaws.com/doc/2006-03-01/' },
     };
 
     if ( args.Topic ) {
@@ -205,7 +205,7 @@ function bodyTagging(options, args) {
 
     // create the data
     var data = {
-        _attr : { 'xmlns' : 'http://s3.amazonaws.com/doc/2006-03-01/' },
+        '@' : { 'xmlns' : 'http://s3.amazonaws.com/doc/2006-03-01/' },
         TagSet : {
             Tag : [],
         }
@@ -228,7 +228,7 @@ function bodyRequestPaymentConfiguration(options, args) {
 
     // create the data
     var data = {
-        _attr : { 'xmlns' : 'http://s3.amazonaws.com/doc/2006-03-01/' },
+        '@' : { 'xmlns' : 'http://s3.amazonaws.com/doc/2006-03-01/' },
         Payer : args.Payer,
     };
 
@@ -240,7 +240,7 @@ function bodyVersioningConfiguration(options, args) {
 
     // create the data
     var data = {
-        _attr : { 'xmlns' : 'http://s3.amazonaws.com/doc/2006-03-01/' },
+        '@' : { 'xmlns' : 'http://s3.amazonaws.com/doc/2006-03-01/' },
     };
 
     if ( args.Status ) {
@@ -259,7 +259,7 @@ function bodyWebsiteConfiguration(options, args) {
 
     // create the data
     var data = {
-        _attr : { 'xmlns' : 'http://s3.amazonaws.com/doc/2006-03-01/' },
+        '@' : { 'xmlns' : 'http://s3.amazonaws.com/doc/2006-03-01/' },
         IndexDocument : {
             Suffix : args.IndexDocument,
         }
