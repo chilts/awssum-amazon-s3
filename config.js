@@ -127,6 +127,18 @@ function bodyPolicy(options, args) {
     return JSON.stringify(args.BucketPolicy);
 }
 
+function bodyRestoreRequest(options, args) {
+    var self = this;
+
+    // create the data
+    var data = {
+        '@' : { 'xmlns' : 'http://s3.amazonaws.com/doc/2006-03-01/' },
+        Days : args.Days,
+    };
+
+    return data2xml('RestoreRequest', data);
+}
+
 function bodyBucketLoggingStatus(options, args) {
     var self = this;
 
@@ -1480,6 +1492,39 @@ module.exports = {
     },
 
     // PostObject, // Web Stuff
+
+    PostObjectRestore : {
+        url : 'http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTObjectPOSTrestore.html',
+        // request
+        method : 'POST',
+        host   : hostBucket,
+        path   : pathObject,
+        defaults : {
+            restore : undefined,
+        },
+        args : {
+            BucketName : {
+                required : true,
+                type     : 'special',
+            },
+            ObjectName : {
+                required : true,
+                type     : 'special',
+            },
+            restore : {
+                required : true,
+                type     : 'resource',
+            },
+            Body : {
+                required : true,
+                type     : 'body',
+            },
+        },
+        body : bodyRestoreRequest,
+        addExtras : extrasContentMd5,
+        // response
+        extractBody : 'none',
+    },
 
     PutObject : {
         url : 'http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTObjectPUT.html',
