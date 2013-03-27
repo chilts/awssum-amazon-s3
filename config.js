@@ -1515,9 +1515,9 @@ module.exports = {
                 required : true,
                 type     : 'resource',
             },
-            Body : {
+            Days : {
                 required : true,
-                type     : 'body',
+                type     : 'special',
             },
         },
         body : bodyRestoreRequest,
