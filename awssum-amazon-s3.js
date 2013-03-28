@@ -64,6 +64,7 @@ var validSubresource = {
     location       : true,
     logging        : true,
     notification   : true,
+    restore        : true,
     partNumber     : true,
     policy         : true,
     requestPayment : true,

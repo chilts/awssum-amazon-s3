@@ -1521,8 +1521,8 @@ module.exports = {
             },
         },
         body : bodyRestoreRequest,
-        addExtras : extrasContentMd5,
         // response
+        statusCode: 202,
         extractBody : 'none',
     },
 
