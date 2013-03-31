@@ -1,7 +1,8 @@
+// Put Object (Streaming)
 var fs = require('fs');
 
 var fmt = require('fmt');
-var amazonS3 = require('../awssum-amazon-s3.js');
+var amazonS3 = require('awssum-amazon-s3.js');
 
 var s3 = new amazonS3.S3({
     'accessKeyId'     : process.env.ACCESS_KEY_ID,
