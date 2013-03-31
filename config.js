@@ -1342,6 +1342,11 @@ module.exports = {
                 required : false,
                 type     : 'header',
             },
+            RequestPayer : {
+                name     : 'x-amz-request-payer',
+                required : false,
+                type     : 'header',
+            },
             ResponseContentType : {
                 name     : 'response-content-type',
                 required : false,
