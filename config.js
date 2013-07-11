@@ -343,6 +343,12 @@ function extrasContentLength(options, args) {
     options.headers['Content-Length'] = args.ContentLength || Buffer.byteLength( options.body );
 }
 
+function extrasContentType(options, args) {
+    if (args.ContentType) {
+        options.headers['Content-Type'] = args.ContentType;
+    }
+}
+
 function extrasContentMd5(options, args) {
     var self = this;
 
@@ -1839,7 +1845,7 @@ module.exports = {
                 note     : 'A comma-separated list of one or more grantees (of the format type=value). Type must be emailAddress, id or url.',
             },
         },
-        addExtras : extrasCopySource,
+        addExtras : [extrasCopySource, extrasContentType],
     },
 
     InitiateMultipartUpload : {
