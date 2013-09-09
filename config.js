@@ -389,7 +389,8 @@ module.exports = {
 
     ListBuckets : {
         url : 'http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTServiceGET.html',
-        // nothing!
+        // request!
+        args : {},
     },
 
     // Operations on Buckets
