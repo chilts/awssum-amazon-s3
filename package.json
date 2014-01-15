@@ -8,7 +8,7 @@
         "node" : ">= 0.6.0"
     },
     "peerDependencies" : {
-        "awssum-amazon" : ">= 1.1.1"
+        "awssum-amazon" : "~1"
     },
     "dependencies" : {
         "data2xml" : "0.8.x",
