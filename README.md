@@ -26,6 +26,32 @@ s3.ListBuckets(function(err, data) {
 });
 ```
 
+## Support for third party services supporting AWS S3 API
+
+Support for third party services supporting AWS S3 API was introduced in version 1.3.2
+
+```
+dependencies : {
+    "awssum-amazon-s3" : "> 1.4.0",
+},
+```
+
+### Example ##
+
+```
+var amazonS3 = require('awssum-amazon-s3');
+
+var S3 = new amazonS3.S3({
+    'accessKeyId'     : process.env.ACCESS_KEY_ID,
+    'secretAccessKey' : process.env.SECRET_ACCESS_KEY,
+    'region'          : 'myregion',
+    'endPoint'        : { 'region' : 'myregion',
+                          'locationConstraint' : '',
+                          'endpoint' : {'protocol' : 'http', 'host' : 'localhost', 'port' : 8123, 'path' : '/path/to/service'}
+                        }
+});
+```
+
 ## Streaming ##
 
 Streaming uploads:
