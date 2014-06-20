@@ -91,6 +91,19 @@ var validSubresource = {
 var S3 = function(opts) {
     var self = this;
 
+    if (! _.isEmpty(opts.endPoint) ) {
+      if (_.isObject(opts.endPoint)) {
+          if (!  opts.endPoint.region) {
+              throw MARK + "region not defined";
+          }
+          if (!  opts.endPoint.endpoint.host) {
+              throw MARK + "host not defined for region'"+ opts.endPoint.region +"'";
+          }
+          endPoint[opts.endPoint.region] = opts.endPoint.endpoint;
+          locationConstraint[opts.endPoint.region] = opts.endPoint.locationConstraint || opts.endPoint.region;
+      }
+    }
+
     // call the superclass for initialisation
     S3.super_.call(this, opts);
 
@@ -108,8 +121,21 @@ util.inherits(S3, amazon.Amazon);
 // --------------------------------------------------------------------------------------------------------------------
 // methods we need to implement from awssum.js/amazon.js
 
+S3.prototype.protocol = function() {
+    return endPoint[this.region()].protocol || "https";
+};
+
 S3.prototype.host = function() {
-    return endPoint[this.region()];
+    return endPoint[this.region()].host || endPoint[this.region()];
+};
+
+S3.prototype.port = function() {
+    var self = this;
+    return endPoint[this.region()].port || ((self.protocol() === 'http') ? 80 : 443);
+};
+
+S3.prototype.path = function() {
+    return endPoint[this.region()].path || "/";
 };
 
 S3.prototype.version = function() {
